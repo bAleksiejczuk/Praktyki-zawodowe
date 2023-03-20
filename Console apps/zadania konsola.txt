@@ -1,0 +1,818 @@
+1.Stworz aplikację która w konsoli wypisze.
+
+int firstNumber = 1;
+int secondnumber = 1;
+
+
+string MyString = "----------";
+Console.WriteLine(MyString.Remove(firstNumber, secondnumber));
+while (secondnumber != 9)
+{
+    secondnumber = secondnumber + 1;
+    Console.WriteLine(MyString.Remove(firstNumber, secondnumber));
+
+}
+________________________________________________
+int firstnumber = 0;
+int secoundNumber = 0;
+while (firstnumber != 7)
+{
+    if (secoundNumber % 2 == 0)
+    {
+        Console.WriteLine("-----");
+        firstnumber++;
+        secoundNumber++;
+    }
+    else
+    {
+        Console.WriteLine("|||||");
+        firstnumber++;
+        secoundNumber++;
+    }
+}
+_________________________________________________________
+
+6.Zaimplementuj stos
+using System;
+using System.Collections.Generic;
+int firstObject = 1;
+var lotteryTicket = new Stack<string>();
+Random r = new Random();
+
+
+
+
+
+
+while (firstObject != 6)
+{
+    int ticket = r.Next(0, 100);
+    lotteryTicket.Push("" + ticket);
+    Console.Write("Dodaje:");
+    Console.WriteLine(lotteryTicket.Peek());
+    firstObject++;
+
+}
+for (int i = 0; i <= 4; i++)
+{
+    Console.Write("Zabiera:");
+    Console.WriteLine(lotteryTicket.Pop());
+}
+
+_____________________________________________________
+5.Za pomoca pętli while generuj liczby i jesli bedzie rowna 15 oposc petle
+
+Random rd = new Random();
+int rand_num = 0;
+
+while (rand_num != 15)
+{
+    rand_num = rd.Next(0, 999);
+    Console.WriteLine(rand_num);
+}
+Console.WriteLine("Gratulacje wylosowales 15!!!");
+Console.WriteLine(rand_num);
+
+
+
+
+_____________________________________________________
+2.Wypisz liczby od 1 do 100 za pomocą 
+A while
+
+int n = 1;
+while (n < 101)
+{
+    Console.WriteLine(n);
+    n++;
+}
+
+B petli do while
+int n = 1;
+do
+{
+    Console.WriteLine(n);
+    n++;
+}
+while (n < 101);
+
+
+3.Sprawdz czy podane przez uzytkownika slowo jest palindromem
+string word = Convert.ToString(Console.ReadLine());
+for (int i = 0; i < word.Length / 2; i++)
+{
+    if (word[i] != word[word.Length - i - 1])
+    {
+        Console.WriteLine(false);
+        break;
+    }
+    else
+    {
+        Console.WriteLine(true);
+        break;
+    }
+}
+
+___________________________________
+4.Napisz program, który będzie odczytywał zawartość pliku tekstowego o podanej przez użytkownika nazwie (użytkownik podaje nazwę pliku bez rozszerzenia txt). W przypadku braku podanego przez użytkownika pliku program ma obsłużyć wyjątek za pomocą bloku try/catch i wypisać odpowiedni komunikat użytkownikowi. 
+
+Console.WriteLine("wpisz nazwe pliku tekstowego:");
+try
+{
+    string addFile = Console.ReadLine();
+    string filePath = @"C:\Users\Brunon\source\repos\ReadTextFile\ReadTextFile\" + addFile + ".txt";
+
+
+    List<string> lines = new List<string>();
+    lines = File.ReadAllLines(filePath).ToList();
+    foreach (String line in lines)
+    {
+        Console.WriteLine(line);
+    }
+    Console.WriteLine(filePath);
+}
+catch (Exception ex)
+{
+    Console.WriteLine("Podany plik tekstowy nie istnieje!");
+}
+__________________________________
+7.zaimplementuj sterte
+class Osoba
+{
+    public String imie { get; set; }
+    public Osoba(string imie) { this.imie = imie; }
+    public void Info() { Console.WriteLine("imie: {0}", imie); }
+}
+
+class Program
+{
+    static void Main(string[] args)
+    {
+        Osoba osoba1 = new Osoba("Karol");
+        Osoba osoba2 = osoba1;
+
+        Console.WriteLine(osoba1.imie); // wyswietli Karol
+        Console.WriteLine(osoba2.imie); // wyswietli Karol
+
+        osoba1.imie = "Karol";
+        osoba2.imie = "Arek";
+
+        Console.WriteLine(osoba1.imie); // wyswietli Arek
+        Console.WriteLine(osoba2.imie); // wyswietli Arek
+
+        Console.ReadKey();
+    }
+}
+________________________________________
+9.
+using System.Linq;
+
+
+
+List<int> lista1 = new List<int>();
+List<int> lista2 = new List<int>();
+List<int> lista3 = new List<int>();
+List<int> lista4 = new List<int>();
+
+
+
+Console.Write("ile chcesz dodac licz do 1 listy ");
+int n = Convert.ToInt32(Console.ReadLine());
+
+
+
+for (int i = 0; i < n; i++) //pobiera do 1 listy
+{
+    lista1.Add(Convert.ToInt32(Console.ReadLine()));
+}
+Console.Write("ile chcesz dodac licz do 2 listy ");
+int n2 = Convert.ToInt32(Console.ReadLine());
+
+
+
+for (int j = 0; j < n2; j++) // pobiera do 2 listy
+{
+    lista2.Add(Convert.ToInt32(Console.ReadLine()));
+}
+
+
+
+lista1.AddRange(lista2); // łączenie listy
+Console.WriteLine("Połączone listy");
+foreach (int cos1 in lista1)
+{
+    Console.WriteLine(cos1); //wyswietlanie polonczonej lity
+}
+
+
+
+
+for (int i = 0; i < lista1.Count; i++) // elementy wspolne
+{
+    for (int j = 0; j < lista2.Count; j++)
+    {
+        if (lista1[i] == lista2[j])
+        {
+            lista3.Add(lista2[j]);
+        }
+    }
+}
+
+
+
+
+Console.WriteLine("elementy wspolne ");
+foreach (int element in lista3.Distinct())
+{
+    System.Console.WriteLine(element);
+}
+_________________________________________________________
+1.Klasa Samochod
+using CarList;
+
+
+var carList = new List<Car>();
+
+carList.Add(new Car("black", "skoda", "felicia", 63));
+carList.Add(new Car("black", "audi", "a4", 143));
+carList.Add(new Car("silver", "bmw", "e36", 120));
+carList.Add(new Car("silver", "mercedes", "c", 180));
+carList.Add(new Car("silver", "toyota", "celica", 123));
+carList.Add(new Car("white", "aston martin", "szybki", 213));
+carList.Add(new Car("white", "aston martin", "szybki", 90));
+carList.Add(new Car("white", "toyota", "celica", 123));
+
+
+
+var carsToPrint = carList.Where(x => x.Color.Equals("black"));
+Console.WriteLine("Auta Czarne:");
+foreach (var item in carsToPrint)
+{
+    Console.WriteLine(item.ToString());
+}
+carsToPrint = null;
+
+carsToPrint = carList.Where(x => x.Brand.Equals("aston martin"));
+Console.WriteLine("Auta Marki aston martin:");
+foreach (var item in carsToPrint)
+{
+    Console.WriteLine(item.ToString());
+}
+carsToPrint = null;
+
+carsToPrint = carList.Where(x => x.Color.Equals("white") && x.Power > 100);
+Console.WriteLine("Auta Białe ktore mają wiecej niz 100 km:");
+foreach (var item in carsToPrint)
+{
+    Console.WriteLine(item.ToString());
+}
+carsToPrint = null;
+
+carsToPrint = carList.Where(x => x.Brand != ("toyota"));
+Console.WriteLine("Auta Marki innej niz Toyota:");
+foreach (var item in carsToPrint)
+{
+    Console.WriteLine(item.ToString());
+}
+carsToPrint = null;
+
+carsToPrint = carList.Where(x => x.Color.Equals("white") || x.Brand.Equals("toyota"));
+Console.WriteLine("Auta Białe lub Marki Toyota:");
+foreach (var item in carsToPrint)
+{
+    Console.WriteLine(item.ToString());
+}
+carsToPrint = null;
+=====================================================
+namespace CarList
+{
+    public class Car
+    {
+        public string Color { get; set; }
+        public string Brand { get; set; }
+        public string Model { get; set; }
+        public int Power { get; set; }
+
+        public Car(string color, string brand, string model, int power)
+        {
+            Color = color;
+            Brand = brand;
+            Model = model;
+            Power = power;
+        }
+
+        public string ToString()
+        {
+            
+            return $"Marka: {Brand} Model: {Model} Moc: {Power} Kolor: {Color}";
+        }
+     
+    }
+}
+
+_____________________________________________________________________________
+2 Napisz koszyk sklepowy. Program powinien posiadać proste menu. Użytkownik może dodawać/usuwać produkty do/z koszyka oraz wyświetlić jego podsumowanie (produkty oraz koszt całkowity). Lista produktów powinna zawierać do 5 wymyślonych przez Ciebie rzeczy. Wykorzystaj dwie klasy (produkt i koszyk). W przypadku dodania do koszyka drugi raz tego samego produktu jego ilość powinna się zwiększyć. 
+using Shop;
+
+
+
+
+
+
+
+
+
+var prodList = new List<Produkt>();
+
+
+
+
+
+
+
+
+
+var koszyk = new Koszyk();
+
+
+
+
+
+
+
+string Continue = "yes";
+string usuwanie = "no";
+
+
+
+
+
+
+
+
+
+prodList.Add(new Produkt("Żubr", 3, 1));
+prodList.Add(new Produkt("Tatra", 2));
+prodList.Add(new Produkt("Warka", 1));
+prodList.Add(new Produkt("Żywiec", 2));
+prodList.Add(new Produkt("Somersby", 5));
+prodList.Add(new Produkt("Lech", 3));
+prodList.Add(new Produkt("Haineken", 2));
+prodList.Add(new Produkt("Desperados", 6));
+
+
+
+
+
+
+
+
+
+
+foreach (var item in prodList)
+{
+    Console.WriteLine(item.Wypisz()); //Wyswietla co mamy w sklepie.
+}
+while (Continue != "")
+{
+
+
+
+
+
+    Console.WriteLine("Co chcesz zrobic(dodac,usunac,kasa)");
+    Continue = Console.ReadLine();
+    if (Continue == "dodac")
+
+
+
+
+    {
+        Console.WriteLine("Jaki Browar Warjacie:");
+        string piwo = Console.ReadLine();
+        var a = prodList.Where(z => z.NazwaProduktu.Equals(piwo)).FirstOrDefault();
+        if (a != null)
+        {
+            var t = prodList.Where(x => x.NazwaProduktu.Equals(piwo)).FirstOrDefault();
+            var index = prodList.IndexOf(t);
+            koszyk.DodajProdukt(prodList[index]);
+
+        }
+
+
+        Console.WriteLine("Stan koszyka:");
+        foreach (var item in koszyk.listaProduktow)
+        {
+            Console.WriteLine(item.NazwaProduktu + " ilość: " + item.Ilosc);
+        }
+    }
+
+
+
+
+    if (Continue == "usunac")
+    {
+
+
+
+
+
+        Console.WriteLine("Jaki Browar usunac?:");
+        string piwoUsun = Console.ReadLine();
+        var x = koszyk.listaProduktow.Where(y => y.NazwaProduktu.Equals(piwoUsun)).FirstOrDefault();
+        if (x != null)
+        {
+            var t2 = prodList.Where(x => x.NazwaProduktu.Equals(piwoUsun)).FirstOrDefault();
+            var index2 = prodList.IndexOf(t2);
+            koszyk.UsunProdukt(prodList[index2]);
+
+
+
+        }
+
+
+
+
+
+
+        foreach (var item in koszyk.listaProduktow)
+        {
+            Console.WriteLine(item.NazwaProduktu + " ilość: " + item.Ilosc);
+        }
+
+
+
+
+
+    }
+    if (Continue == "kasa")
+    {
+
+
+        koszyk.SumujCene();
+        break;
+    }
+
+
+
+
+
+
+
+}
+==========================================================================
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+
+
+
+namespace Shop
+{
+    public class Koszyk
+    {
+
+
+
+
+        public List<Produkt> listaProduktow { get; set; }
+        public Koszyk()
+        {
+
+            listaProduktow = new List<Produkt>();
+        }
+
+        public void DodajProdukt(Produkt produkt )
+        {
+            if (listaProduktow.Where(x => x.NazwaProduktu.Equals(produkt.NazwaProduktu)).Any())
+            {
+                var t = listaProduktow.Where(x => x.NazwaProduktu.Equals(produkt.NazwaProduktu)).FirstOrDefault();
+                var index = listaProduktow.IndexOf(t);
+                listaProduktow[index].Ilosc++;
+         
+            }
+            else
+            {
+                produkt.Ilosc = 1;
+                listaProduktow.Add(produkt);
+
+
+
+            }
+        
+           
+        }
+        public void UsunProdukt(Produkt produkt)
+        {
+            var t = listaProduktow.Where(x => x.NazwaProduktu.Equals(produkt.NazwaProduktu)).FirstOrDefault();
+            var index = listaProduktow.IndexOf(t);
+            listaProduktow[index].Ilosc--;
+            if (produkt.Ilosc == 0)
+            {
+                listaProduktow.Remove(listaProduktow[index]);
+
+            }
+            
+        }
+        public void SumujCene()
+        {
+           
+           var rachunek = listaProduktow.Sum(x => x.Cena * x.Ilosc);
+            Console.WriteLine(rachunek+"zł");
+            
+        }
+
+
+
+
+
+    }
+
+
+
+
+
+
+    public class Produkt
+    {
+        public string NazwaProduktu { get; set; }
+        public int Cena { get; set; }
+
+
+
+        public int Ilosc { get; set; }
+
+
+
+
+
+        public Produkt(string nazwa_produktu, int cena, int ilosc = 0)
+        {
+            NazwaProduktu = nazwa_produktu;
+            Cena = cena;
+            Ilosc = ilosc;
+        }
+
+
+
+        public string Wypisz()
+        {
+            return $"Nazwa: {NazwaProduktu} Cena: {Cena}zł";
+        }
+
+
+
+    }
+
+
+
+
+
+
+
+}
+______________________________________________________
+
+
+11. 2 kartka
+// OUT
+internal class Program
+{
+    private static void SetToFive(out int value)
+    {
+        value = 5;
+    }
+    private static void Main(string[] args)
+    {
+        
+        SetToFive(out var  value);
+        Console.WriteLine(value);
+    }
+}
+// REF
+/*internal class Program2
+{
+    private static void SetToFive(ref int value)
+    {
+        value = 5;
+    }
+    private static void Main(string[] args)
+    {
+        int value = 0;
+        SetToFive(ref value);
+        Console.WriteLine(value);
+    }
+}*/
+____________________________________________\
+11.stworz liczbe intow
+
+List<int> listNumbers = new List<int>();
+int odp= 0; 
+listNumbers.Add(1);
+listNumbers.Add(2);
+listNumbers.Add(1);
+listNumbers.Add(4);
+listNumbers.Add(6);
+listNumbers.Add(6);
+listNumbers.Add(7);
+
+
+int num1 = Convert.ToInt32(Console.ReadLine());
+
+var c = listNumbers.Where(x => x == num1).ToList();
+var count = c.Count;
+
+
+if (c.Count == 1)
+{
+    Console.WriteLine("Twoja liczba wystepuje raz");
+}
+else if (c.Count > 1)
+{
+    Console.WriteLine("Twoja liczba wystepuje " + c.Count);
+}
+else 
+{
+    Console.WriteLine("Twoja liczba nie wystepuje");
+}
+
+
+____________________________________
+2.
+
+var a = new Siusiak();
+Console.WriteLine(a.Zwroci());
+==================================
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+
+
+
+public abstract class KlasaAbstrakcyjna
+{
+public int i;
+public virtual int Zwroci()
+{
+return 2;
+}
+}
+public class Siusiak: KlasaAbstrakcyjna
+{
+public override int Zwroci()
+{
+return 1;
+}
+}
+_____________________________________________________________________________________
+using Figury;
+Console.WriteLine("wybierz(Kwadrat,Prostokat,Trojkat,Kolo");
+string wybierz = Console.ReadLine();
+var kwadrat =  new Kwadrat();
+var prostokat = new Prostokat();
+var trojkat = new Trojkat();
+var kolo = new Kolo();
+
+if (wybierz == "Kwadrat")
+{
+    Console.WriteLine(kwadrat.Obwod());
+    Console.WriteLine(kwadrat.Pole());
+    Console.WriteLine(kwadrat.Kolor());
+}
+if (wybierz == "Prostokat")
+{
+    Console.WriteLine(prostokat.Obwod());
+    Console.WriteLine(prostokat.Pole());
+    Console.WriteLine(prostokat.Kolor());
+}
+if (wybierz == "Trojkat")
+{
+    Console.WriteLine(trojkat.Obwod());
+    Console.WriteLine(trojkat.Pole());
+    Console.WriteLine(trojkat.Kolor());
+}
+if(wybierz=="Kolo")
+{
+    Console.WriteLine(kolo.Obwod());
+    Console.WriteLine(kolo.Pole());
+    Console.WriteLine(kolo.Kolor());
+
+}
+else
+{
+    Console.WriteLine("Co ty pisac nie umiesz");
+}
+
+
+======================================================================
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+
+
+namespace Figury
+{
+    public abstract class Figura
+    {
+        public string kolor = "Czarny";
+        public abstract int Pole();
+        public abstract int Obwod();
+
+
+    }
+   
+    public class Kwadrat : Figura
+
+    {
+        public int BokKwadratu = 10;
+        
+        public override int Pole()
+        {
+            return BokKwadratu * BokKwadratu;
+        }
+        public override int Obwod()
+        {
+            return BokKwadratu * 4;
+        }
+        public string Kolor()
+        {
+            return kolor;
+        }
+    }
+
+    public class Prostokat : Figura
+    {
+        public int Wysokosc = 10;
+        public int Szerokosc = 5;
+        public override int Pole()
+        {
+            return Wysokosc * Szerokosc;
+        }
+        public override int Obwod()
+        {
+            return Wysokosc * 2 + Szerokosc * 2;
+        }
+        public string Kolor()
+        {
+            return kolor;
+        }
+    }
+    public class Trojkat : Figura
+    {
+        public int Wysokosc = 10;
+        public int Szerokosc = 5;
+        public int TrzeciBok = 6;
+
+        
+
+        public override int Pole()
+        {
+            return Wysokosc * Szerokosc / 2;
+        }
+        public override int Obwod()
+        {
+
+            return Wysokosc + Szerokosc + TrzeciBok;
+        }
+        public string Kolor()
+        {
+            return kolor;
+        }
+    }
+    public class Kolo : Figura
+    {
+        public int Promien = 10;
+        public override int Pole()
+        {
+            return 3 * Promien * Promien;
+        }
+        public override int Obwod()
+        {
+            return 3 * 3 *Promien;
+        }
+        public string Kolor()
+        {
+            return kolor;
+        }
+
+
+
+    }
+}
+
+
+
+
+
+
+
+
+
+
+

@@ -1,0 +1,102 @@
+string dzialanie = "tak";
+
+Console.WriteLine("Podaj pierwsza liczbe:");
+
+int num1 = Convert.ToInt32(Console.ReadLine());
+
+
+
+int suma = 0;
+int num2 = 0;
+int wynikObliczenia = 0;
+
+while (dzialanie == "tak")
+{
+    Console.WriteLine("Co mam zrobic?(+,-,*,/):");
+    string coMamZrobic = Console.ReadLine();
+    Console.WriteLine("Podaj Kolejna liczbe:");
+    num2 = Convert.ToInt32(Console.ReadLine());
+
+
+    if (coMamZrobic == "+")
+    {
+        Console.Write("Wynik:");
+        suma = num1 + num2;
+        Console.WriteLine(wynikObliczenia += suma);
+        num1 = 0;
+        num2 = 0;
+
+
+    }
+    else if (coMamZrobic == "-")
+    {
+        Console.Write("Wynik:");
+        suma = num1 - num2;
+        Console.WriteLine(wynikObliczenia += suma);
+        num1 = 0;
+        num2 = 0;
+    }
+    else if (coMamZrobic == "*")
+
+    {
+        if (num1 == 0)
+        {
+            Console.Write("Wynik:");
+            wynikObliczenia = wynikObliczenia * num2;
+            Console.WriteLine(wynikObliczenia);
+        }
+        else
+        {
+            Console.Write("Wynik:");
+            suma = num1 * num2;
+            Console.WriteLine(wynikObliczenia += suma);
+        }
+        num1 = 0;
+        num2 = 0;
+    }
+
+    else if (coMamZrobic == "/")
+    { 
+        if (num2 != 0)
+        {
+            
+                if (num1 == 0)
+                {
+                    Console.Write("Wynik:");
+                    wynikObliczenia = wynikObliczenia / num2;
+                    Console.WriteLine(wynikObliczenia);
+                }
+                else
+                {
+                    Console.Write("Wynik:");
+                    suma = num1 / num2;
+                    Console.WriteLine(wynikObliczenia += suma);
+                }
+         }
+        else
+        {
+            Console.WriteLine("nie idzel przez 0");
+        }
+        num1 = 0;
+        num2 = 0;
+    }
+
+    else
+    {
+        Console.WriteLine("Podałeś zły znak lub wcale go nie podałes");
+    }
+
+    Console.WriteLine("Kontynuować?(tak,nie)");
+    dzialanie = Console.ReadLine();
+    if (dzialanie == "tak")
+    {
+
+    }
+    else
+    {
+        Console.WriteLine("Koniec");
+        Environment.Exit(0);
+        break;
+        
+    }
+}
