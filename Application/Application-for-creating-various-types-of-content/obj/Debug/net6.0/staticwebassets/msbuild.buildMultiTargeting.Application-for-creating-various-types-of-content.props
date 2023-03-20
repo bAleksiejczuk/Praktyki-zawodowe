@@ -1,0 +1,3 @@
+﻿<Project>
+  <Import Project="..\build\Application-for-creating-various-types-of-content.props" />
+</Project>
